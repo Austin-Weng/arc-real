@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.screen {
+  justify-content: center;
+}
+
+.body-text{
+  color: black;
+  font-size: large;
+}
+
+#trello{
+  width: max-content;
+  height: max-content;
+}
+
+.container {
+  justify-content: center;
+}

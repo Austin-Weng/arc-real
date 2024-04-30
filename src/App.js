@@ -4,9 +4,9 @@ import './App.css';
 
 function App() {
   return (
-    <div className="container">
-      <div className="headerContainer">
-        <h1 className="header">Acropolis Robotics Center</h1>
+    <div class="container">
+      <div class="headerContainer">
+        <h1 class="header">Acropolis Robotics Center</h1>
       </div>
       <Router>
         <nav style={{ backgroundColor: '#598cde', color: 'white' }}>
@@ -18,10 +18,10 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/guides" component={Guides} />
-          <Route path="/trello" component={Trello} />
-          <Route path="/timeline" component={Timeline} />
+          <Route path="/" exact element={<Home/>} />
+          <Route path="/guides" element={<Guides/>} />
+          <Route path="/trello" element={<Trello/>} />
+          <Route path="/timeline" element={<Timeline/>} />
         </Routes>
       </Router>
     </div>
@@ -30,32 +30,32 @@ function App() {
 
 function Home() {
   return (
-    <div className="screen">
-      <p>Home Screen</p>
+    <div class="screen">
+      <p class="body-text">Home Screen</p>
     </div>
   );
 }
 
 function Guides() {
   return (
-    <div className="screen">
-      <p>Guides Screen</p>
+    <div class="screen">
+      <p class="body-text">Guides Screen</p>
     </div>
   );
 }
 
 function Trello() {
   return (
-    <div className="screen">
-      <iframe title="Trello" style={{ width: '100%', height: '100%' }} src="https://trello.com" />
+    <div class="screen">
+      <iframe id="trello" src="https://trello.com/" ></iframe>
     </div>
   );
 }
 
 function Timeline() {
   return (
-    <div className="screen">
-      <p>Timeline</p>
+    <div class="screen">
+      <p class="body-text">Timeline</p>
     </div>
   );
 }
