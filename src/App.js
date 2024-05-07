@@ -1,27 +1,28 @@
 import React from 'react';
+import Iframe from'react-iframe';
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div class="container">
-      <div class="headerContainer">
-        <h1 class="header">Acropolis Robotics Center</h1>
+    <div className="container">
+      <div className="headerContainer">
+        <h1 className="header">Acropolis Robotics Center</h1>
       </div>
       <Router>
-        <nav style={{ backgroundColor: '#598cde', color: 'white' }}>
-          <ul style={{ listStyleType: 'none', display: 'flex' }}>
-            <li><Link to="/" style={{ color: 'white', padding: 10 }}>Home</Link></li>
-            <li><Link to="/guides" style={{ color: 'white', padding: 10 }}>Guides</Link></li>
-            <li><Link to="/trello" style={{ color: 'white', padding: 10 }}>Trello</Link></li>
-            <li><Link to="/timeline" style={{ color: 'white', padding: 10 }}>Timeline</Link></li>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/guides">Guides</Link></li>
+            <li><Link to="/trello">Trello</Link></li>
+            <li><Link to="/timeline">Timeline</Link></li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/" exact element={<Home/>} />
-          <Route path="/guides" element={<Guides/>} />
-          <Route path="/trello" element={<Trello/>} />
-          <Route path="/timeline" element={<Timeline/>} />
+          <Route path="/" exact element={<Home />} />
+          <Route path="/guides" element={<Guides />} />
+          <Route path="/trello" element={<Trello />} />
+          <Route path="/timeline" element={<Timeline />} />
         </Routes>
       </Router>
     </div>
@@ -47,7 +48,7 @@ function Guides() {
 function Trello() {
   return (
     <div class="screen">
-      <iframe id="trello" src="https://trello.com/" ></iframe>
+      <Iframe id="trello" src="https://trello.com/b/qzIRAfmd.html" style={{ width: '100%', height: '100%', frameBorder:"0"}}></Iframe>
     </div>
   );
 }
