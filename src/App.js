@@ -1,64 +1,56 @@
-import React from 'react';
-import Iframe from'react-iframe';
+import React, { useState, useEffect } from 'react';
+import supabase from './supabaseClient';
+
 import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+
+import { AuthProvider } from './AuthContext';
+import Login from './Login';
+import ProtectedRoute from './ProtectedRoute';
+import Home from './Home';
+import Guides from './Guides';
+import Trello from './Trello';
+import Timeline from './Timeline';
 import './App.css';
 
 function App() {
+
+  useEffect(() => {
+    const session = supabase.auth.session();
+    console.log('Current session:', session);
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      console.log('Session changed:', session);
+    });
+  }, []);
+
   return (
-    <div className="container">
-      <div className="headerContainer">
-        <h1 className="header">Acropolis Robotics Center</h1>
-      </div>
-      <Router>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/guides">Guides</Link></li>
-            <li><Link to="/trello">Trello</Link></li>
-            <li><Link to="/timeline">Timeline</Link></li>
-          </ul>
-        </nav>
+    <Router>
+      <AuthProvider>
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/guides" element={<Guides />} />
-          <Route path="/trello" element={<Trello />} />
-          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }/>
+          <Route path="/guides" element={
+            <ProtectedRoute>
+              <Guides />
+            </ProtectedRoute>
+          }/>
+          <Route path="/trello" element={
+            <ProtectedRoute>
+              <Trello />
+            </ProtectedRoute>
+          }/>
+          <Route path="/timeline" element={
+            <ProtectedRoute>
+              <Timeline />
+            </ProtectedRoute>
+          }/>
         </Routes>
-      </Router>
-    </div>
+      </AuthProvider>
+    </Router>
   );
 }
-
-function Home() {
-  return (
-    <div class="screen">
-      <p class="body-text">Home Screen</p>
-    </div>
-  );
-}
-
-function Guides() {
-  return (
-    <div class="screen">
-      <p class="body-text">Guides Screen</p>
-    </div>
-  );
-}
-
-function Trello() {
-  return (
-    <div class="screen">
-      <Iframe id="trello" src="https://trello.com/b/qzIRAfmd.html" style={{ width: '100%', height: '100%', frameBorder:"0"}}></Iframe>
-    </div>
-  );
-}
-
-function Timeline() {
-  return (
-    <div class="screen">
-      <p class="body-text">Timeline</p>
-    </div>
-  );
-}
-
 export default App;
