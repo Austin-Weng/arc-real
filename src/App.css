@@ -47,6 +47,7 @@ a:hover {
 .screen {
   padding: 20px;
   text-align: center;
+  align-items: center;
 }
 
 .body-text {
@@ -54,56 +55,12 @@ a:hover {
   color: #333;
 }
 
-iframe {
+.iframe {
   width: 100%;
   height: 500px;
   border: none;
 }
 
-/* Login Page Styles */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
-  background-color: #f0f0f0; /* Light grey background */
-}
-
-.login-form {
-  padding: 2rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  width: 100%;
-  max-width: 400px; /* Max width for the form */
-  box-sizing: border-box;
-}
-
-.login-form h2 {
+#timelineHeader{
   text-align: center;
-  color: #333; /* Dark grey */
-}
-
-.login-form input[type="email"],
-.login-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007BFF; /* Blue */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.login-form button:hover {
-  background-color: #0056b3; /* Darker blue */
 }
