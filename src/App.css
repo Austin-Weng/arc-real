@@ -1,13 +1,16 @@
 body, h1, p, ul, li, a {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: Arial, sans-serif;
+  align-items: center;
 }
 
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: center;
+  text-align: center;
 }
 
 .headerContainer {
@@ -48,6 +51,8 @@ a:hover {
   padding: 20px;
   text-align: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .body-text {
@@ -55,7 +60,7 @@ a:hover {
   color: #333;
 }
 
-.iframe {
+iframe {
   width: 100%;
   height: 500px;
   border: none;
@@ -63,4 +68,21 @@ a:hover {
 
 #timelineHeader{
   text-align: center;
+}
+
+#logo{
+  height: 25%;
+  width: 25%;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: #282c34;
+}
+
+#homePage{
+  padding-top: 10px;
+}
+
+#galleryContainer{
+  flex-direction: row;
 }
